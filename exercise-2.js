@@ -22,8 +22,43 @@ const papaJohns = {
   address: "555 Main Street",
   zipcode: 11234,
   acceptsReservations: false,
-};
+  printAd: function (topping){
+    if (this.pizzaToppings.hasOwnProperty(topping)){
+      let toppingPrice = this.pizzaToppings[topping];
+      return `"Welcome to Papa John's! We are located at ${this.address}. This week, we are having a sale on ${topping} for $${toppingPrice}. ${this.slogan}"`
+    }
+  }
+}
 
 // DO NOT EDIT THE ABOVE OBJECT // 
 
 // YOUR WORK GOES HERE // 
+
+function grabCategories(obj){
+  return Object.keys(obj);
+}
+
+// console.log(grabCategories(papaJohns.pizzaToppings));
+
+function verifyValues(object, count){
+  const numberValue = Object.keys(object).length;
+  return numberValue === count;
+
+}
+
+// console.log(Object.values(papaJohns));
+
+function getToppingsInfo(object){
+  let results = [];
+  for (let topping in object.pizzaToppings){
+    if (object.pizzaToppings.hasOwnProperty(topping)){
+      results.push(topping, object.pizzaToppings[topping]);
+    }
+  }
+
+  return results;
+}
+
+console.log(papaJohns.printAd('bacon'));
+// console.log(papaJohns.pizzaToppings)
+
