@@ -27,11 +27,11 @@ const dominos = {
   acceptsReservations: true,
 };
 
-// function printPizzaPlaces(obj){
-//   for (let item in obj){
-//     console.log(item, obj[item]);
-//   }
-// }
+function printPizzaPlaces(obj){
+  for (let item in obj){
+    console.log(item, obj[item]);
+  }
+}
 
 // console.log(printPizzaPlaces(dominos));
 
@@ -55,4 +55,23 @@ function toppingsPriceRange(obj){
   
 };
 
-console.log(toppingsPriceRange(dominos));
+// console.log(toppingsPriceRange(dominos));
+
+function calculateAverageRating(obj){
+  let results = [];
+  let sum = 0;
+  let count = 0;
+  for (let key in obj){
+    if (key === 'starReviews'){
+      for (let value in obj[key]){
+        let arr = obj[key][value];
+        sum += arr;
+        count++;
+      }
+    }
+  }
+  let avg = Math.floor(sum / count);
+  return avg;
+};
+
+console.log(calculateAverageRating(dominos));
